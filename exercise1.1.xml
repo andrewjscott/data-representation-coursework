@@ -1,0 +1,23 @@
+<Books>
+	<Technical>
+		<Book ISBN="12345432"> 
+			<title>Python for Statistics</title>
+			<author>Eve Aspinall</author>
+		</Book>
+		<Book ISBN="12345477"> 
+			<title>R for Statistics</title>
+			<author>Adam Aspinall</author>
+		</Book>
+	</Technical>
+	
+	<Cookery>
+		<Book ISBN="14345477"> 
+			<title>CAKES! CAKES!! CAKES!!!</title>
+			<author>Kate Baker</author>
+		</Book>	
+		<Book ISBN="24345477"> 
+			<title>Five Minute Meals</title>
+			<author>Jeb Fakerson</author>
+		</Book>		
+	</Cookery>
+</Books>
