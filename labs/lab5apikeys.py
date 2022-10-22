@@ -2,6 +2,8 @@
 
 import requests
 import urllib.parse
+
+# config.py added to gitignore so this import wont work as it is from github without the config file
 from config import config as cfg
 
 target_url = "https://en.wikipedia.org"
