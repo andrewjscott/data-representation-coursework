@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>
+            test create
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+    </body>
+
+    <script>
+        function createBook(book, callback){
+            console.log(JSON.stringify(book));
+            $.ajax({
+                "url": "http://andrewbeatty1.pythonanywhere.com/books",
+                "method":"POST",
+                "data": JSON.stringify(book),
+                "datatype": "JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    console.log(result);
+                    callback(result)
+                },
+                "error": function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });        
+        }
+
+        function processCreateResponse(result){
+            console.log(result)
+        }
+
+        function updateBook(book, callback){
+            console.log(JSON.stringify(book));
+            $.ajax({
+                "url": "http://andrewbeatty1.pythonanywhere.com/books/"+encodeURI(book.id),
+                "method":"PUT",
+                "data":JSON.stringify(book),
+                "dataType":"JSON",
+                contentType:"application/json; charset=utf-8",
+                "success":function(result){
+                    console.log(result);
+                    callback(result)
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+            });
+        }
+
+        function processUpdateResponse(result){
+            console.log(result)
+        }
+        
+        function deleteBook(id, callback){
+            $.ajax({
+                "url": "http://andrewbeatty1.pythonanywhere.com/books/"+id,
+                "method":"DELETE",
+                "data":"",
+                "dataType":"JSON",
+                contentType: "application/json; charset=utf-8",
+                "success":function(result){
+                    console.log(result);
+                    callback(result)
+                },
+                "error":function(xhr,status,error){
+                    console.log("error: "+status+" msg:"+error);
+                }
+
+            });
+        }
+
+        function processDeleteResponse(result){
+            console.log("in process delete")
+            console.log(result)
+        }
+        
+        updateBook(175,processDeleteResponse)
+
+    </script>
+</html>
